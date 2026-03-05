@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="board">
+	
+	<select id="getBoardTypeMap" resultType="boardType">
+		SELECT BOARD_CD AS "boardCd", BOARD_NAME
+		FROM BOARD_TYPE 
+	</select>
+	
+	<select id="selectList" resultType="board">
+		SELECT 
+			B.BOARD_NO ,
+			B.BOARD_TITLE ,
+			M.USER_NAME AS BOARD_WRITER ,
+			B.COUNT ,
+			B.CREATE_DATE 
+		FROM BOARD B
+		LEFT JOIN MEMBER M ON B.BOARD_WRITER = M.USER_NO
+		WHERE B.STATUS = 'Y' AND B.BOARD_CD = #{boardCd}
+		ORDER BY B.BOARD_NO DESC
+	</select>
+	
+</mapper>

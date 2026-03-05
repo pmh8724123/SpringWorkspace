@@ -28,6 +28,13 @@
 		<security:intercept-url pattern="/member/idCheck" access="permitAll" />
 		<security:intercept-url pattern="/security/accessDenied" access="permitAll" />
 		
+		<!-- 채팅과 관련된 url 권한 -->
+		<security:intercept-url pattern="/chat/**" access="hasRole('USER')" />
+		<security:intercept-url pattern="/board/**" access="hasRole('USER')" />
+		<security:intercept-url pattern="/reply/**" access="hasRole('USER')" />
+		<security:intercept-url pattern="/stomp/**" access="permitAll" />
+		
+		<security:intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
 		
 		<!-- 
 			form-login
