@@ -49,7 +49,7 @@
 	 	 - JDBC를 통해 커넥션을 얻어온 후, 트랜잭션을 시작/커밋/롤백하는것을 담당.
 	 	 - @Transactional어노테이션을 통해 트랜잭션을 선언적으로 처리
 	  -->
-	  <bean id="trasactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	  	<property name="dataSource" ref="datasource"></property>
 	  </bean>
 	  
