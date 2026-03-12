@@ -53,7 +53,7 @@ public class SecurityController {
 	@RequestMapping("/accessDenied")
 	public String accessDenied(Model m) {
 		m.addAttribute("errorMsh", "접근 불가능한 페이지입니다.");
-		return "common/errPage";
+		return "common/errorPage";
 		
 	}
 	
